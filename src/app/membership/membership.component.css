@@ -1,0 +1,164 @@
+/* membership.component.css */
+
+/* Hero Section Styles */
+.hero-section {
+  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%);
+}
+
+/* Logo Animation */
+.logo-z {
+  transition: transform 0.3s ease;
+}
+
+.logo-z:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Program Cards Styles */
+.program-card {
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(163, 230, 53, 0.2);
+}
+
+.program-card.active {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(163, 230, 53, 0.3);
+}
+
+/* Package Cards Styles */
+.package-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.package-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(163, 230, 53, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.package-card:hover::before {
+  left: 100%;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  border-color: #a3e635;
+}
+
+/* Popular Badge Animation */
+.popular-badge {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Navigation Arrows */
+.nav-arrow {
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  transform: scale(1.1);
+}
+
+/* Feature List Checkmarks */
+.feature-check {
+  transition: all 0.3s ease;
+}
+
+.feature-check:hover {
+  transform: scale(1.1);
+  background-color: #84cc16;
+}
+
+/* Register Button */
+.register-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.register-btn:hover::before {
+  left: 100%;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(163, 230, 53, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 70vh;
+  }
+  
+  .program-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .package-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .program-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .package-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a3e635;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #84cc16;
+}

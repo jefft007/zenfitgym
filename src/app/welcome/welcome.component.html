@@ -1,0 +1,318 @@
+<div class="min-h-screen bg-black text-white px-4 md:px-8 lg:px-20">
+
+  <!-- Navbar -->
+ <!-- Navbar -->
+<header class="flex justify-between items-center py-6 relative">
+  <!-- Logo -->
+  <img src="assets/images/logo.png" alt="ZenFit Logo" class="w-24 h-auto" />
+
+  <!-- Hamburger Button (Mobile Only) -->
+  <button
+    class="text-white md:hidden text-2xl focus:outline-none"
+    (click)="toggleMobileMenu()"
+  >
+    <i class="fas" [ngClass]="{ 'fa-times': isMobileMenuOpen, 'fa-bars': !isMobileMenuOpen }"></i>
+  </button>
+
+  <!-- Navigation Links (Desktop) -->
+  <nav class="space-x-6 text-sm font-medium hidden md:flex">
+    <a href="#" class="hover:text-lime-400 transition">Home</a>
+    <button (click)="navigateToMembership()" class="hover:text-lime-400 transition">Membership</button>
+    <a href="#" class="hover:text-lime-400 transition">Equipments</a>
+    <a href="#" class="hover:text-lime-400 transition">Diet</a>
+    <a href="#" class="hover:text-lime-400 transition">Login</a>
+    <button (click)="navigateToRegister()" class="hover:text-lime-400 transition">Sign Up</button>
+  </nav>
+
+  <!-- Navigation Links (Mobile Dropdown) -->
+  <div
+    *ngIf="isMobileMenuOpen"
+    class="absolute top-full left-0 w-full bg-black text-white py-4 space-y-4 flex flex-col items-center z-50 md:hidden border-t border-gray-700"
+  >
+    <a href="#" class="hover:text-lime-400 transition">Home</a>
+    <button (click)="navigateToMembership()" class="hover:text-lime-400 transition">Membership</button>
+    <a href="#" class="hover:text-lime-400 transition">Equipments</a>
+    <a href="#" class="hover:text-lime-400 transition">Diet</a>
+    <a href="#" class="hover:text-lime-400 transition">Login</a>
+    <button (click)="navigateToRegister()" class="hover:text-lime-400 transition">Sign Up</button>
+  </div>
+</header>
+
+  
+  
+  
+
+  <!-- Hero Section -->
+  <section
+    class="relative grid md:grid-cols-2 gap-8 items-center my-10 overflow-hidden rounded-xl"
+    style="background-image: url('assets/images/bg-hero.jpg'); background-size: cover; background-position: center;"
+  >
+    <div class="absolute inset-0 bg-black opacity-70"></div>
+
+    <!-- Left Content -->
+    <div class="relative z-10 space-y-6 px-6 py-2 md:py-4">
+      <h1 class="text-4xl font-bold leading-tight">
+        Train your body<br />Master your mind
+      </h1>
+      <p class="text-gray-300">
+        Staying active isn’t just about fitness – it’s about feeling stronger, more confident, and living better every day.From boosting mental clarity to building physical strength, the benefits go far beyond the gym.
+      </p>
+      <p class="text-lg font-semibold text-white">
+        Join ZenFit to start unlocking your full potential.
+      </p>
+    </div>
+
+    <!-- Right Image -->
+    <div class="relative z-10">
+      <img src="assets/images/lady.png" alt="Fitness Woman" class="w-full max-h-[600px] object-contain" />
+    </div>
+  </section>
+
+  <!-- Workout Programs -->
+  <section class="my-14 border border-gray-700 rounded-xl p-6">
+    <h2 class="text-2xl font-semibold mb-6">Free Workout Programs</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+      <!-- Program Cards -->
+      <div class="bg-gray-900 rounded-lg p-4 text-center border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+        <img src="assets/images/beg.jpg" alt="Beginner" class="w-full h-40 object-cover rounded mb-4"/>
+        <p class="text-white font-semibold">Beginner Friendly</p>
+        <button class="mt-3 text-lime-400 underline text-sm">Start Today</button>
+      </div>
+      <div class="bg-gray-900 rounded-lg p-4 text-center border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+        <img src="assets/images/mod.jpg" alt="Moderate" class="w-full h-40 object-cover rounded mb-4" />
+        <p class="text-white font-semibold">Moderate to Advanced</p>
+        <button class="mt-3 text-lime-400 underline text-sm">Start Today</button>
+      </div>
+      <div class="bg-gray-900 rounded-lg p-4 text-center border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+        <img src="assets/images/weightloss.jpg" alt="Weight Loss" class="w-full h-40 object-cover rounded mb-4" />
+        <p class="text-white font-semibold">Weight Loss</p>
+        <button class="mt-3 text-lime-400 underline text-sm">Start Today</button>
+      </div>
+      <div class="bg-gray-900 rounded-lg p-4 text-center border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+        <img src="assets/images/nooequi.jpg" alt="No Equipment" class="w-full h-40 object-cover rounded mb-4" />
+        <p class="text-white font-semibold">No Equipment</p>
+        <button class="mt-3 text-lime-400 underline text-sm">Start Today</button>
+      </div>
+      <div class="bg-gray-900 rounded-lg p-4 text-center border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+        <img src="assets/images/strength.jpg" alt="Strength" class="w-full h-40 object-cover rounded mb-4" />
+        <p class="text-white font-semibold">Strength Training</p>
+        <button class="mt-3 text-lime-400 underline text-sm">Start Today</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="my-14">
+    <h2 class="text-2xl font-semibold mb-6 text-white">Gallery</h2>
+    <div class="w-full">
+      <img src="assets/images/gallery.png" alt="Gallery Full Image" class="w-full h-auto rounded-2xl object-cover" />
+    </div>
+  </section>
+
+  <!-- Trainers -->
+  <section class="my-14 px-4 sm:px-8 lg:px-20">
+  <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8">Meet our Trainers</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    
+    <!-- Trainer 1 -->
+    <div class="bg-gray-900 rounded-xl overflow-hidden text-left border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+      <img src="assets/images/ftrainer.png" alt="Aiden Cruz" class="w-full h-80 object-cover" />
+      <div class="p-4">
+        <h3 class="text-white text-lg font-semibold">Aiden Cruz</h3>
+        <p class="text-gray-400 text-sm mb-4 whitespace-nowrap">Strength & Conditioning Coach</p>
+
+        <div class="text-gray-300 text-sm p-3 border border-gray-600 rounded-lg">
+          Aiden brings over 6 years of experience training athletes and beginners alike. His sessions focus on muscle building, strength endurance, and posture correction — perfect for those looking to sculpt and grow with proper technique.
+        </div>
+      </div>
+    </div>
+
+    <!-- Trainer 2 -->
+    <div class="bg-gray-900 rounded-xl overflow-hidden text-left border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+      <img src="assets/images/t2.png" alt="Riley Stone" class="w-full h-80 object-cover" />
+      <div class="p-4">
+        <h3 class="text-white text-lg font-semibold">Riley Stone</h3>
+        <p class="text-gray-400 text-sm mb-4">Functional & HIIT Specialist</p>
+        <div class="text-gray-300 text-sm p-3 border border-gray-600 rounded-lg">
+          Riley blends functional movements with high-intensity routines. With a background in athletics and CrossFit, she’s known for transforming energy into results — great for fat burn, core strength, and mobility.
+        </div>
+      </div>
+    </div>
+
+    <!-- Trainer 3 -->
+    <div class="bg-gray-900 rounded-xl overflow-hidden text-left border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+      <img src="assets/images/t3.png" alt="Ava Bennet" class="w-full h-80 object-cover" />
+      <div class="p-4">
+        <h3 class="text-white text-lg font-semibold">Ava Bennet</h3>
+       <p class="text-gray-400 text-sm mb-4 whitespace-nowrap">Weight Training & Flexibility Coach</p>
+        <div class="text-gray-300 text-sm p-3 border border-gray-600 rounded-lg">
+          Ava combines strength training with mobility work. With 5+ years in fitness and a calm, motivating style, she’s ideal for women seeking tone, flexibility, and confidence in every session.
+        </div>
+      </div>
+    </div>
+
+    <!-- Trainer 4 -->
+    <div class="bg-gray-900 rounded-xl overflow-hidden text-left border border-gray-700 hover:border-lime-400 transition transform hover:scale-105">
+      <img src="assets/images/t4.png" alt="Leo Morgan" class="w-full h-80 object-cover" />
+      <div class="p-4">
+        <h3 class="text-white text-lg font-semibold">Leo Morgan</h3>
+        <p class="text-gray-400 text-sm mb-4">Physique & Fat Loss Expert</p>
+        <div class="text-gray-300 text-sm p-3 border border-gray-600 rounded-lg">
+          Leo specializes in fat loss programs and body recomposition. With over 7 years of coaching, his methodical training approach and meal tracking support help clients burn fat and build lean muscle effectively.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- About Us Section -->
+   <div class="bg-black text-white px-4 pt-12 pb-4">
+  <h2 class="text-2xl sm:text-3xl font-extrabold">About Us</h2>
+</div>
+   <section
+  
+    class="relative text-white min-h-[100vh] flex items-center justify-center bg-cover bg-center"
+    style="background-image: url('assets/images/b1.jpg');"
+  >
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 px-6 max-w-6xl w-full text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+        get more out of your <span class="text-white">Fitness Journey</span>
+      </h2>
+      <p class="text-gray-200 mb-4 text-lg">Join the community to track your progress</p>
+      <p class="text-gray-300 max-w-2xl mx-auto mb-10">
+        ZenFit is more than just a space to train — it’s where journeys begin.
+        We believe fitness is personal, and every goal deserves guidance.
+        With expert support and a focus on balance and growth,
+        ZenFit makes your journey not just possible — but powerful.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-4 justify-center items-start">
+        <div class="bg-gray-900 bg-opacity-80 p-4 rounded-xl text-left w-[280px] mx-auto">
+          <img src="assets/images/f1.png" alt="Rated" class="rounded-t-xl mb-3 h-40 w-full object-cover" />
+          <p class="text-white font-semibold text-sm">
+            Rated 4.9★ by Our Members<br />
+            <span class="text-gray-300 text-sm">
+              Trusted by a growing community dedicated to strength and balance.
+            </span>
+          </p>
+        </div>
+        <div class="bg-gray-900 bg-opacity-80 p-4 rounded-xl text-left w-[280px] mx-auto">
+          <img src="assets/images/f2.png" alt="Transformations" class="rounded-t-xl mb-3 h-40 w-full object-cover" />
+          <p class="text-white font-semibold text-sm">
+            10,000+ Transformations Tracked<br />
+            <span class="text-gray-300 text-sm">
+              Helping individuals stay consistent and reach their personal fitness goals.
+            </span>
+          </p>
+        </div>
+        <div class="bg-gray-900 bg-opacity-80 p-4 rounded-xl text-left w-[280px] mx-auto">
+          <img src="assets/images/f3.png" alt="Expert Training" class="rounded-t-xl mb-3 h-40 w-full object-cover" />
+          <p class="text-white font-semibold text-sm">
+            Expert-Led Training Programs<br />
+            <span class="text-gray-300 text-sm">
+              Designed and led by certified coaches with real-world results.
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Font Awesome CDN (for social & contact icons) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- Footer -->
+<footer class="bg-black text-white px-6 py-10">
+  <div class="grid md:grid-cols-5 gap-8 text-sm">
+
+    <!-- Column 1: Logo + About + Socials -->
+    <div>
+      <!-- Logo -->
+      <img src="assets/images/logo.png" alt="ZenFit Logo" class="w-16 mb-4" />
+
+      <!-- Description -->
+      <p class="leading-relaxed text-gray-300 mb-6">
+        Transform Your Body with <span class="text-yellow-400 font-semibold">ZenFit</span>, Your Trusted Partner in Fitness.
+        With Over <span class="text-yellow-400 font-semibold">5 Years</span> of Experience, We Offer Expert Coaching,
+        Tailored Workout Plans. <span class="text-yellow-400 font-semibold">Join Our Community</span> and Start Your Journey
+        Towards a Healthier, Stronger You. Ready to Make a Change?
+      </p>
+
+      <!-- Social Icons -->
+      <div class="mt-8 flex items-center space-x-6 text-2xl text-white">
+  <a href="#" aria-label="Facebook" class="w-8 h-8 flex items-center justify-center hover:text-yellow-400">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="#" aria-label="Instagram" class="w-8 h-8 flex items-center justify-center hover:text-yellow-400">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="#" aria-label="Twitter" class="w-8 h-8 flex items-center justify-center hover:text-yellow-400">
+    <i class="fab fa-twitter"></i> <!-- Use fa-twitter for consistent design -->
+  </a>
+  <a href="#" aria-label="YouTube" class="w-8 h-8 flex items-center justify-center hover:text-yellow-400">
+    <i class="fab fa-youtube"></i>
+  </a>
+</div>
+
+    </div>
+
+    <!-- Column 2: Company -->
+    <div class="mt-12">
+      <h3 class="text-yellow-400 font-semibold mb-3">Company</h3>
+      <ul class="space-y-2">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Services</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Testimonial</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 3: Resources -->
+   <div class="mt-12">
+      <h3 class="text-yellow-400 font-semibold mb-3">Resources</h3>
+      <ul class="space-y-2">
+        <li><a href="#">Fitness Tools</a></li>
+        <li><a href="#">Workout Videos</a></li>
+        <li><a href="#">Nutrition Guides</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Success Stories</a></li>
+        <li><a href="#">Membership</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 4: Programs -->
+    <div class="mt-12">
+      <h3 class="text-yellow-400 font-semibold mb-3">Programs</h3>
+      <ul class="space-y-2">
+        <li><a href="#">Weight Loss</a></li>
+        <li><a href="#">Building Muscles</a></li>
+        <li><a href="#">Home Workout</a></li>
+        <li><a href="#">Gym Plan</a></li>
+        <li><a href="#">Our Plans</a></li>
+        <li><a href="#">Fitness Group</a></li>
+      </ul>
+    </div>
+
+    <!-- Column 5: Contact Us -->
+    <div class="mt-12">
+      <h3 class="text-yellow-400 font-semibold mb-3">Contact Us</h3>
+      <ul class="space-y-3">
+        <li class="flex items-center">
+          <i class="fas fa-map-marker-alt text-yellow-400 mr-2"></i> India
+        </li>
+        <li class="flex items-center">
+          <i class="fas fa-phone text-yellow-400 mr-2"></i> 1234-56789
+        </li>
+        <li class="flex items-center">
+          <i class="fas fa-envelope text-yellow-400 mr-2"></i> ZenFitGmail.Com
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</footer>

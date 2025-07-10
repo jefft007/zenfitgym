@@ -1,0 +1,39 @@
+.gym-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xMDAgMTBMMTkwIDEwMEwxMDAgMTkwTDEwIDE0MEwxMCAxMDBMMTAwIDEwWiIgZmlsbD0iIzMzMzMzMyIgZmlsbC1vcGFjaXR5PSIwLjMiLz4KPHBhdGggZD0iTTUwIDUwSDEwMFY5MEg1MFY1MFoiIGZpbGw9IiM0NDQ0NDQiIGZpbGwtb3BhY2l0eT0iMC4yIi8+CjxwYXRoIGQ9Ik0xMjAgNDBIMTcwVjgwSDEyMFY0MFoiIGZpbGw9IiM0NDQ0NDQiIGZpbGwtb3BhY2l0eT0iMC4yIi8+CjxwYXRoIGQ9Ik0zMCAxMjBINDBWMTgwSDMwVjEyMFoiIGZpbGw9IiM0NDQ0NDQiIGZpbGwtb3BhY2l0eT0iMC4yIi8+CjxwYXRoIGQ9Ik0xNDAgMTIwSDE1MFYxODBIMTQwVjEyMFoiIGZpbGw9IiM0NDQ0NDQiIGZpbGwtb3BhY2l0eT0iMC4yIi8+Cjwvc3ZnPgo=');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.logo-z {
+  font-family: 'Arial Black', Arial, sans-serif;
+  font-weight: 900;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.step-circle {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.step-circle.active {
+  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.4);
+}
+
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(163, 230, 53, 0.2);
+}
+
+.continue-btn {
+  transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
