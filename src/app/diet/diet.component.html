@@ -1,0 +1,44 @@
+<div class="min-h-screen bg-black text-white px-6 py-12">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row items-center sm:justify-between mb-12 gap-6">
+        <div class="text-center sm:text-left">
+            <img src="assets/images/logo.png" alt="ZenFit Logo" class="w-20 sm:w-24 mb-4 mx-auto sm:mx-0" />
+            <h1 class="text-3xl sm:text-4xl font-bold">Nutrition Guides</h1>
+            <p class="text-yellow-400 text-sm sm:text-base">Abs are made in the kitchen. Fuel your progress.</p>
+        </div>
+        <button (click)="goBack()"
+            class="px-5 py-2 border border-yellow-400 text-yellow-400 rounded-full hover:bg-yellow-400 hover:text-black transition text-sm">
+            <i class="fas fa-arrow-left mr-2"></i> Back
+        </button>
+    </div>
+
+    <!-- Grid -->
+    <div class="space-y-8">
+        <div *ngFor="let plan of plans"
+            class="bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 flex flex-col md:flex-row gap-8 p-6 hover:border-yellow-400 transition group">
+            <div class="w-full md:w-1/3 h-64 md:h-auto overflow-hidden rounded-2xl">
+                <img [src]="plan.img" [alt]="plan.name"
+                    class="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+            </div>
+            <div class="w-full md:w-2/3 flex flex-col justify-center">
+                <h3 class="text-3xl font-bold mb-4">{{ plan.name }}</h3>
+                <p class="text-gray-400 text-lg mb-6">{{ plan.desc }}</p>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-black/40 p-4 rounded-2xl border border-gray-800">
+                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-1">Calories</p>
+                        <p class="text-xl font-bold text-yellow-400">{{ plan.calories }}</p>
+                    </div>
+                    <div class="bg-black/40 p-4 rounded-2xl border border-gray-800">
+                        <p class="text-gray-500 text-xs uppercase tracking-widest mb-1">Protein</p>
+                        <p class="text-xl font-bold text-yellow-400">{{ plan.protein }}</p>
+                    </div>
+                </div>
+
+                <button
+                    class="w-fit px-8 py-3 bg-yellow-400 text-black rounded-2xl font-bold hover:bg-yellow-500 transition">View
+                    Full Meal Plan</button>
+            </div>
+        </div>
+    </div>
+</div>

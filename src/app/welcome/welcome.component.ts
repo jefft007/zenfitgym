@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css'] // Remove if not used
+  styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent {
   isMobileMenuOpen = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    public authService: AuthService
+  ) { }
+
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
+  }
+
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 
   // Navigation Methods
   navigateToMembership(): void {
@@ -25,26 +38,32 @@ export class WelcomeComponent {
   }
 
   // List of workout programs
+  // List of workout programs
   programs = [
     {
       title: 'Beginner Friendly',
-      img: 'assets/images/beg.jpg'
+      img: 'assets/images/beg.jpg',
+      link: '/beginner'
     },
     {
-      title: 'Moderate to Advanced',
-      img: 'assets/images/moderate.png'
+      title: 'Moderate',
+      img: 'assets/images/mod.jpg',
+      link: '/moderate'
     },
     {
       title: 'Weight Loss',
-      img: 'assets/images/weight.jpg'
+      img: 'assets/images/weightloss.jpg',
+      link: '/weightloss'
     },
     {
       title: 'No Equipment',
-      img: 'assets/images/no-equipment.jpg'
+      img: 'assets/images/nooequi.jpg',
+      link: '/noequipment'
     },
     {
       title: 'Strength Training',
-      img: 'assets/images/strength.jpg'
+      img: 'assets/images/strength.jpg',
+      link: '/strength'
     }
   ];
 
@@ -53,26 +72,26 @@ export class WelcomeComponent {
     {
       name: 'Aiden Cruz',
       title: 'Strength & Conditioning Coach',
-      desc: 'Aiden brings over 5 years of experience helping athletes push their limits...',
-      img: 'assets/images/trainer1.jpg'
+      desc: 'Aiden brings over 6 years of experience training athletes and beginners alike. His sessions focus on muscle building, strength endurance, and posture correction — perfect for those looking to sculpt and grow with proper technique.',
+      img: 'assets/images/ftrainer.png'
     },
     {
       name: 'Riley Stone',
       title: 'Functional & HIIT Specialist',
-      desc: 'Riley blends functional movements & HIIT to deliver fast, visible results...',
-      img: 'assets/images/trainer2.jpg'
+      desc: 'Riley blends functional movements with high-intensity routines. With a background in athletics and CrossFit, she’s known for transforming energy into results — great for fat burn, core strength, and mobility.',
+      img: 'assets/images/t2.png'
     },
     {
       name: 'Ava Bennett',
       title: 'Weight Training & Flexibility Coach',
-      desc: 'Ava combines strength training and flexibility with clear, motivating sessions...',
-      img: 'assets/images/trainer3.jpg'
+      desc: 'Ava combines strength training with mobility work. With 5+ years in fitness and a calm, motivating style, she’s ideal for women seeking tone, flexibility, and confidence in every session.',
+      img: 'assets/images/t3.png'
     },
     {
       name: 'Leo Morgan',
       title: 'Physique & Fat Loss Expert',
-      desc: 'Leo specializes in fat loss programs and lean muscle building techniques...',
-      img: 'assets/images/trainer4.jpg'
+      desc: 'Leo specializes in fat loss programs and body recomposition. With over 7 years of coaching, his methodical training approach and meal tracking support help clients burn fat and build lean muscle effectively.',
+      img: 'assets/images/t4.png'
     }
   ];
 

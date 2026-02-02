@@ -1,5 +1,7 @@
-// membership.component.ts
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 interface ProgramCard {
   title: string;
@@ -23,7 +25,13 @@ interface Package {
   styleUrls: ['./membership.component.css']
 })
 export class MembershipComponent {
-  
+
+  constructor(
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router
+  ) { }
+
   // Program cards data
   programCards: ProgramCard[] = [
     {
@@ -65,7 +73,7 @@ export class MembershipComponent {
         'Flexibility Training',
         'Personal Trainer'
       ],
-      buttonText: 'Register Now'
+      buttonText: 'Purchase'
     },
     {
       name: 'Mid Package',
@@ -81,7 +89,7 @@ export class MembershipComponent {
         'Personal Trainer'
       ],
       isPopular: true,
-      buttonText: 'Register Now'
+      buttonText: 'Purchase'
     },
     {
       name: 'Pro Package',
@@ -94,7 +102,7 @@ export class MembershipComponent {
         'All Fitness Equipment',
         'Personal Trainer'
       ],
-      buttonText: 'Register Now'
+      buttonText: 'Purchase'
     },
     {
       name: 'Athletic Package',
@@ -108,15 +116,13 @@ export class MembershipComponent {
         'Personal Trainer',
         'Diet Chart'
       ],
-      buttonText: 'Register Now'
+      buttonText: 'Purchase'
     }
   ];
 
-  // Navigation arrows
   currentProgramIndex = 0;
   currentPackageIndex = 0;
 
-  // Methods
   onProgramCardClick(index: number) {
     this.programCards.forEach((card, i) => {
       card.isActive = i === index;
@@ -140,7 +146,20 @@ export class MembershipComponent {
   }
 
   onRegisterPackage(packageName: string) {
-    console.log(`Registering for ${packageName}`);
-    // Add registration logic here
+    if (!this.authService.isLoggedIn()) {
+      this.toastr.warning('Please login to purchase a membership', 'Authentication Required');
+      this.router.navigate(['/login']);
+      return;
+    }
+
+    this.authService.updateProfile({ membershipType: packageName }).subscribe({
+      next: (res) => {
+        this.toastr.success(`Successfully enrolled in ${packageName}!`, 'Success');
+        this.router.navigate(['/profile']);
+      },
+      error: (err) => {
+        this.toastr.error('Failed to update membership. Please try again.', 'Error');
+      }
+    });
   }
 }

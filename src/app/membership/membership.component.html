@@ -1,17 +1,17 @@
 <!-- membership.component.html -->
 <div class="min-h-screen bg-black text-white">
-  
+
   <!-- Hero Section -->
-  <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center" 
-           style="background-image: url('assets/images/membership-hero-bg.jpg');">
+  <section class="relative min-h-screen flex items-center justify-center bg-cover bg-center"
+    style="background-image: url('assets/images/membership-hero-bg.jpg');">
     <div class="absolute inset-0 bg-black opacity-50"></div>
-    
+
     <!-- Left Side - Fitness Image -->
     <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center max-w-6xl mx-auto px-6">
       <div class="flex justify-center">
         <img src="assets\images\lady2.png" alt="Fitness Woman" class="max-w-md w-full object-contain" />
       </div>
-      
+
       <!-- Right Side - Content -->
       <div class="text-center md:text-left space-y-6">
         <!-- Logo -->
@@ -21,14 +21,14 @@
           </div>
           <h1 class="text-4xl font-bold text-lime-400">ZENFIT</h1>
         </div>
-        
+
         <h2 class="text-3xl md:text-4xl font-bold leading-tight">
           Balance Your Body.<br />
           Focus Your Mind
         </h2>
-        
+
         <p class="text-gray-300 text-lg max-w-md">
-          Train smarter, reduce stress, and build strength through guided 
+          Train smarter, reduce stress, and build strength through guided
           routines that adapt to your pace and goals.
         </p>
       </div>
@@ -38,19 +38,19 @@
   <!-- Programs Section -->
   <section class="py-16 px-6">
     <div class="max-w-6xl mx-auto">
-      
+
       <!-- Section Header -->
       <div class="flex items-center justify-between mb-12">
         <h2 class="text-3xl md:text-4xl font-bold">Explore Our Program</h2>
-        
+
         <!-- Navigation Arrows -->
         <div class="flex space-x-2">
-          <button (click)="onPrevProgram()" 
-                  class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-lime-400 hover:text-black transition">
+          <button (click)="onPrevProgram()"
+            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-lime-400 hover:text-black transition">
             <i class="fas fa-chevron-left"></i>
           </button>
-          <button (click)="onNextProgram()" 
-                  class="w-10 h-10 bg-lime-400 text-black rounded-full flex items-center justify-center hover:bg-lime-500 transition">
+          <button (click)="onNextProgram()"
+            class="w-10 h-10 bg-lime-400 text-black rounded-full flex items-center justify-center hover:bg-lime-500 transition">
             <i class="fas fa-chevron-right"></i>
           </button>
         </div>
@@ -58,29 +58,23 @@
 
       <!-- Program Cards -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div *ngFor="let program of programCards; let i = index" 
-             (click)="onProgramCardClick(i)"
-             class="cursor-pointer transition-transform hover:scale-105"
-             [class.transform]="program.isActive"
-             [class.scale-105]="program.isActive">
-          
-          <div class="p-6 rounded-2xl border-2 transition-all duration-300"
-               [class.bg-lime-400]="program.isActive"
-               [class.text-black]="program.isActive"
-               [class.border-lime-400]="program.isActive"
-               [class.bg-gray-900]="!program.isActive"
-               [class.border-gray-700]="!program.isActive">
-            
+        <div *ngFor="let program of programCards; let i = index" (click)="onProgramCardClick(i)"
+          class="cursor-pointer transition-transform hover:scale-105" [class.transform]="program.isActive"
+          [class.scale-105]="program.isActive">
+
+          <div class="p-6 rounded-2xl border-2 transition-all duration-300" [class.bg-lime-400]="program.isActive"
+            [class.text-black]="program.isActive" [class.border-lime-400]="program.isActive"
+            [class.bg-gray-900]="!program.isActive" [class.border-gray-700]="!program.isActive">
+
             <!-- Icon Slot -->
             <div class="w-12 h-12 mb-4 flex items-center justify-center">
               <img [src]="program.iconPath" [alt]="program.title + ' Icon'" class="w-full h-full object-contain" />
             </div>
-            
+
             <!-- Content -->
             <h3 class="text-xl font-bold mb-3">{{ program.title }}</h3>
-            <p class="text-sm leading-relaxed"
-               [class.text-gray-800]="program.isActive"
-               [class.text-gray-400]="!program.isActive">
+            <p class="text-sm leading-relaxed" [class.text-gray-800]="program.isActive"
+              [class.text-gray-400]="!program.isActive">
               {{ program.description }}
             </p>
           </div>
@@ -92,7 +86,7 @@
   <!-- Packages Section -->
   <section class="py-16 px-6 bg-gray-900">
     <div class="max-w-6xl mx-auto">
-      
+
       <!-- Section Header -->
       <div class="text-center mb-12">
         <p class="text-lime-400 text-sm font-semibold mb-2">PRICING</p>
@@ -101,15 +95,15 @@
 
       <!-- Package Cards -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div *ngFor="let package of packages; let i = index" 
-             class="relative bg-black rounded-2xl p-6 border-2 border-gray-700 hover:border-lime-400 transition-all duration-300">
-          
+        <div *ngFor="let package of packages; let i = index"
+          class="relative flex flex-col bg-black rounded-2xl p-6 border-2 border-gray-700 hover:border-lime-400 transition-all duration-300">
+
           <!-- Popular Badge -->
-          <div *ngIf="package.isPopular" 
-               class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-lime-400 text-black px-4 py-1 rounded-full text-xs font-bold">
+          <div *ngIf="package.isPopular"
+            class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-lime-400 text-black px-4 py-1 rounded-full text-xs font-bold">
             POPULAR
           </div>
-          
+
           <!-- Package Header -->
           <div class="text-center mb-6">
             <h3 class="text-white font-semibold mb-2">{{ package.name }}</h3>
@@ -121,8 +115,7 @@
 
           <!-- Features List -->
           <ul class="space-y-3 mb-8">
-            <li *ngFor="let feature of package.features" 
-                class="flex items-center space-x-3 text-sm text-gray-300">
+            <li *ngFor="let feature of package.features" class="flex items-center space-x-3 text-sm text-gray-300">
               <div class="w-5 h-5 bg-lime-400 rounded-full flex items-center justify-center flex-shrink-0">
                 <i class="fas fa-check text-black text-xs"></i>
               </div>
@@ -131,8 +124,8 @@
           </ul>
 
           <!-- Register Button -->
-          <button (click)="onRegisterPackage(package.name)" 
-                  class="w-full bg-lime-400 text-black py-3 rounded-lg font-semibold hover:bg-lime-500 transition">
+          <button (click)="onRegisterPackage(package.name)"
+            class="w-full mt-auto bg-lime-400 text-black py-3 rounded-lg font-semibold hover:bg-lime-500 transition">
             {{ package.buttonText }}
           </button>
         </div>

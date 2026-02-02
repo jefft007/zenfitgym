@@ -1,0 +1,80 @@
+<div class="min-h-screen bg-black py-12 px-4 sm:px-6 lg:px-8 text-white">
+  <div *ngIf="isLoading" class="flex justify-center items-center h-64">
+    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-lime-400"></div>
+  </div>
+
+  <div *ngIf="!isLoading" class="max-w-2xl mx-auto">
+    <div class="flex items-center gap-4 mb-8">
+      <button (click)="goBack()"
+        class="w-10 h-10 bg-gray-900 rounded-full flex items-center justify-center hover:bg-gray-800 transition">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h1 class="text-3xl font-bold">Edit Profile</h1>
+    </div>
+
+    <div class="bg-gray-900 rounded-3xl p-8 border border-gray-800 shadow-2xl">
+      <form #editForm="ngForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <!-- Name -->
+        <div>
+          <label class="block text-gray-400 text-sm font-medium mb-2">Full Name</label>
+          <input type="text" name="name" [(ngModel)]="user.name" required
+            class="w-full bg-black border border-gray-800 rounded-2xl px-6 py-4 focus:border-lime-400 focus:outline-none transition" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Age -->
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Age</label>
+            <input type="number" name="age" [(ngModel)]="user.age"
+              class="w-full bg-black border border-gray-800 rounded-2xl px-6 py-4 focus:border-lime-400 focus:outline-none transition" />
+          </div>
+          <!-- Gender -->
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Gender</label>
+            <select name="gender" [(ngModel)]="user.gender"
+              class="w-full bg-black border border-gray-800 rounded-2xl px-6 py-4 focus:border-lime-400 focus:outline-none transition appearance-none">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <!-- Height -->
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Height (cm)</label>
+            <input type="number" name="height" [(ngModel)]="user.height"
+              class="w-full bg-black border border-gray-800 rounded-2xl px-6 py-4 focus:border-lime-400 focus:outline-none transition" />
+          </div>
+          <!-- Weight -->
+          <div>
+            <label class="block text-gray-400 text-sm font-medium mb-2">Weight (kg)</label>
+            <input type="number" name="weight" [(ngModel)]="user.weight"
+              class="w-full bg-black border border-gray-800 rounded-2xl px-6 py-4 focus:border-lime-400 focus:outline-none transition" />
+          </div>
+        </div>
+
+        <!-- Goal -->
+        <div>
+          <label class="block text-gray-400 text-sm font-medium mb-2">Fitness Goal</label>
+          <select name="goal" [(ngModel)]="user.goal"
+            class="w-full bg-black border border-gray-800 rounded-2xl px-6 py-4 focus:border-lime-400 focus:outline-none transition appearance-none">
+            <option value="Weight Loss">Weight Loss</option>
+            <option value="Muscle Gain">Muscle Gain</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Flexibility">Flexibility</option>
+          </select>
+        </div>
+
+        <div class="pt-6">
+          <button type="submit" [disabled]="!editForm.valid || isLoading"
+            class="w-full bg-lime-400 text-black py-4 rounded-2xl font-bold hover:bg-lime-500 transition disabled:opacity-50 flex justify-center items-center">
+            <span *ngIf="!isLoading">Save Changes</span>
+            <span *ngIf="isLoading" class="animate-spin rounded-full h-5 w-5 border-b-2 border-black"></span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

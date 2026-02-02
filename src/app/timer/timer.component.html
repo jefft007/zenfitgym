@@ -1,25 +1,27 @@
 <div class="relative p-4">
   <!-- Set Timer Button in Top Right -->
   <div class="flex justify-end">
-    <button class="px-6 py-2 border border-yellow-400 text-yellow-400 rounded-full hover:bg-yellow-400 hover:text-black transition"
-            (click)="toggleInput()">
+    <button
+      class="px-6 py-2 border border-yellow-400 text-yellow-400 rounded-full hover:bg-yellow-400 hover:text-black transition"
+      (click)="toggleInput()">
       Set Timer
     </button>
   </div>
 
-  <!-- Timer Popup Positioned Below the Button -->
-  <div *ngIf="showInput && !timerStarted" class="absolute right-4 mt-2 bg-gray-800 p-4 rounded-lg shadow-xl w-72 z-50">
+  <!-- Timer Popup -->
+  <div *ngIf="showInput && !timerStarted"
+    class="fixed inset-x-4 top-20 sm:absolute sm:inset-auto sm:right-4 sm:top-full sm:mt-2 bg-gray-800 p-6 rounded-2xl shadow-2xl w-auto sm:w-72 z-50 border border-gray-700">
     <h2 class="text-lg font-bold mb-3 text-white">Set Time</h2>
     <div class="flex space-x-2">
       <input type="number" [(ngModel)]="hours" placeholder="HH" min="0"
-             class="w-16 p-2 text-black text-center rounded" />
+        class="w-16 p-2 text-black text-center rounded" />
       <input type="number" [(ngModel)]="minutes" placeholder="MM" min="0" max="59"
-             class="w-16 p-2 text-black text-center rounded" />
+        class="w-16 p-2 text-black text-center rounded" />
       <input type="number" [(ngModel)]="seconds" placeholder="SS" min="0" max="59"
-             class="w-16 p-2 text-black text-center rounded" />
+        class="w-16 p-2 text-black text-center rounded" />
     </div>
     <button class="mt-4 w-full bg-green-600 px-4 py-2 rounded text-white hover:bg-green-500 transition"
-            (click)="startTimer()">
+      (click)="startTimer()">
       Start Timer
     </button>
   </div>
@@ -27,16 +29,12 @@
   <!-- Countdown Display -->
   <div *ngIf="timerStarted" class="mt-6 text-center bg-gray-900 p-4 rounded-lg max-w-sm mx-auto">
     <h2 class="text-xl font-semibold mb-3 text-white">Workout Timer</h2>
-    <svg [ngClass]="{ 'animate-pulse': remainingSeconds === 0 }" class="w-40 h-40 mx-auto transform -rotate-90" viewBox="0 0 100 100">
+    <svg [ngClass]="{ 'animate-pulse': remainingSeconds === 0 }" class="w-40 h-40 mx-auto transform -rotate-90"
+      viewBox="0 0 100 100">
       <circle cx="50" cy="50" r="45" stroke="#444" stroke-width="10" fill="none" />
-      <circle cx="50" cy="50" r="45"
-              [attr.stroke]="remainingSeconds === 0 ? '#ef4444' : '#4ade80'"
-              stroke-width="10" fill="none"
-              stroke-dasharray="282.6"
-              [attr.stroke-dashoffset]="progressStroke" />
+      <circle cx="50" cy="50" r="45" [attr.stroke]="remainingSeconds === 0 ? '#ef4444' : '#4ade80'" stroke-width="10"
+        fill="none" stroke-dasharray="282.6" [attr.stroke-dashoffset]="progressStroke" />
     </svg>
     <div class="text-4xl font-mono mt-4 text-white">{{ displayTime }}</div>
   </div>
 </div>
-
-

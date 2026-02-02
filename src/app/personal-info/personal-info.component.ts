@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-personalinfo',
@@ -7,10 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./personal-info.component.css']
 })
 export class PersonalinfoComponent implements OnInit {
-  
+
   password: string = '';
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit(): void {
     this.loadSavedData();
@@ -68,12 +72,12 @@ export class PersonalinfoComponent implements OnInit {
 
   isPasswordValid(): boolean {
     return this.password.length >= 8 &&
-           /[A-Z]/.test(this.password) &&
-           /[a-z]/.test(this.password) &&
-           /[0-9]/.test(this.password) &&
-           /[^A-Za-z0-9]/.test(this.password) &&
-           !this.hasSequentialNumbers() &&
-           !this.isWeakPassword();
+      /[A-Z]/.test(this.password) &&
+      /[a-z]/.test(this.password) &&
+      /[0-9]/.test(this.password) &&
+      /[^A-Za-z0-9]/.test(this.password) &&
+      !this.hasSequentialNumbers() &&
+      !this.isWeakPassword();
   }
 
   goBack(): void {
@@ -96,15 +100,13 @@ export class PersonalinfoComponent implements OnInit {
   }
 
   showValidationErrors(): void {
-    let errors: string[] = [];
-    if (this.password.length < 8) errors.push('Password must be at least 8 characters long');
-    if (!/[A-Z]/.test(this.password)) errors.push('Password must contain at least one uppercase letter');
-    if (!/[a-z]/.test(this.password)) errors.push('Password must contain at least one lowercase letter');
-    if (!/[0-9]/.test(this.password)) errors.push('Password must contain at least one number');
-    if (!/[^A-Za-z0-9]/.test(this.password)) errors.push('Password must contain at least one special character');
-    if (this.hasSequentialNumbers()) errors.push('Password should not contain sequential numbers');
-    if (this.isWeakPassword()) errors.push('Password is too common or weak');
-    alert('Please fix the following errors:\n' + errors.join('\n'));
+    if (this.password.length < 8) this.toastr.error('Password must be at least 8 characters long');
+    else if (!/[A-Z]/.test(this.password)) this.toastr.error('Password must contain at least one uppercase letter');
+    else if (!/[a-z]/.test(this.password)) this.toastr.error('Password must contain at least one lowercase letter');
+    else if (!/[0-9]/.test(this.password)) this.toastr.error('Password must contain at least one number');
+    else if (!/[^A-Za-z0-9]/.test(this.password)) this.toastr.error('Password must contain at least one special character');
+    else if (this.hasSequentialNumbers()) this.toastr.error('Password should not contain sequential numbers');
+    else if (this.isWeakPassword()) this.toastr.error('Password is too common or weak');
   }
 
   hasUppercase(): boolean {
