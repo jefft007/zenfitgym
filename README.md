@@ -1,27 +1,90 @@
-# Intern
+# ZenFit – Fitness Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+ZenFit is a modern fitness and wellness website built to help users achieve their health goals through personalized fitness plans, diet tracking, workout programs, and membership features.
 
-## Development server
+The project focuses on delivering a clean UI, responsive experience, and engaging fitness platform for users.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Modern responsive fitness website
+- User authentication (Login / Signup)
+- Fitness membership plans
+- Workout and diet plans
+- Calorie tracking
+- Daily login tracking
+- Animated hero section
+- Trainer showcase
+- Responsive mobile-friendly UI
+- Dark mode support
+- Contact section
+- Smooth scrolling and modern design
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🛠 Technologies Used
 
-## Running unit tests
+- Angular
+- TypeScript
+- Tailwind CSS
+- HTML5
+- CSS3
+- JavaScript
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 📂 Pages Included
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Home
+- About
+- Membership Plans
+- Trainers
+- Fitness Programs
+- Diet Plans
+- Contact
+- Login / Signup
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+---
+
+## ⚙️ Installation
+
+Clone the repository:
+
+git clone https://github.com/yourusername/zenfit.git
+
+Open project folder:
+
+cd zenfit
+
+Install dependencies:
+
+npm install
+
+Run the project:
+
+ng serve
+
+Open browser:
+
+http://localhost:4200
+
+---
+
+## ✨ Future Improvements
+
+- AI workout recommendation
+- Payment gateway integration
+- Fitness chatbot
+- Admin dashboard
+- User progress analytics
+- Meal recommendation AI
+
+---
+
+## 👨‍💻 Author
+
+Jeff Thomas
